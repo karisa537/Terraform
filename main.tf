@@ -1,9 +1,17 @@
-provider "aws" {
-    alias = "east-us-1"
-    region = "east-us-1"
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
 }
 
-resource "aws_instance" "DevOps-Server" {
+provider "aws" {
+  region = "us-east-1"  # Replace with your desired region
+}
+
+resource "aws_instance" "devops-server" {
     ami = "ami-0c7217cdde317cfec"
     instance_type = "t2.micro"
 }
